@@ -1,0 +1,8 @@
+.content {
+    overflow: hidden;
+    display: -webkit-box;
+    -webkit-line-clamp: 4;       //* Количество строк 
+    -webkit-box-orient: vertical;
+}
+
+//* Обрезает текст, оставляя заданное количестов строк с многоточием

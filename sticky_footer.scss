@@ -1,0 +1,22 @@
+html,
+body {
+    height: 100%;
+}
+
+body {
+    display: flex;
+    flex-direction: column;
+}
+
+.header {
+}
+
+.main {
+    flex-grow: 1;
+}
+
+.footer {
+    flex-grow: 0;
+}
+
+//* Прижать футер к низу страницы

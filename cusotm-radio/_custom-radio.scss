@@ -1,0 +1,133 @@
+%custom-radio {
+    $width: 16px;
+    $height: 16px;
+    $color-border: rgb(255, 210, 50);
+    $color-hover: rgb(255, 225, 55);
+    $color-active: rgb(255, 235, 75);
+    $color-checked: rgb(255, 201, 25);
+    $color-checked-hover: rgb(234, 191, 82);
+    $color-checked-active: $color-active;
+    $color-disabled: rgb(100, 100, 100);
+
+    appearance: none;
+    width: $width;
+    height: $height;
+    border: 1px solid $color-border;
+    border-radius: 100%;
+    cursor: pointer;
+    position: relative;
+
+    &:hover {
+        border-color: $color-hover;
+    }
+
+    &:active {
+        border-color: $color-active;
+    }
+
+    &:checked {
+        border-color: $color-checked;
+    }
+
+    &:checked:hover {
+        border-color: $color-checked-hover;
+    }
+
+    &:checked:active {
+        border-color: $color-checked-active;
+    }
+
+    &:checked::after {
+        content: "";
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+        width: 70%;
+        height: 70%;
+        border-radius: 100%;
+        background-color: $color-checked;
+    }
+
+    &:checked:hover::after {
+        background-color: $color-checked-hover;
+    }
+
+    &:checked:active::after {
+        background-color: $color-checked-active;
+    }
+
+    &:disabled {
+        border-color: $color-disabled;
+        cursor: not-allowed;
+    }
+
+    &:checked:disabled::after {
+        background-color: $color-disabled;
+    }
+
+    &:checked:disabled:hover {
+        border-color: $color-disabled;
+    }
+}
+
+%custom-radio-2 {
+    @extend %custom-radio;
+    $color-border: rgb(121, 20, 255);
+    $color-hover: rgb(89, 5, 223);
+    $color-active: rgb(120, 71, 255);
+    $color-checked: rgb(121, 25, 255);
+    $color-checked-hover: rgb(106, 0, 255);
+    $color-checked-active: $color-active;
+    $color-disabled: rgb(100, 100, 100);
+    $width: 32px;
+    $height: 32px;
+
+    width: $width;
+    height: $height;
+    border: 1px solid $color-border;
+
+    &:hover {
+        border-color: $color-hover;
+    }
+
+    &:active {
+        border-color: $color-active;
+    }
+
+    &:checked {
+        border-color: $color-checked;
+    }
+
+    &:checked:hover {
+        border-color: $color-checked-hover;
+    }
+
+    &:checked:active {
+        border-color: $color-checked-active;
+    }
+
+    &:checked::after {
+        background-color: $color-checked;
+    }
+
+    &:checked:hover::after {
+        background-color: $color-checked-hover;
+    }
+
+    &:checked:active::after {
+        background-color: $color-checked-active;
+    }
+
+    &:disabled {
+        border-color: $color-disabled;
+    }
+
+    &:checked:disabled {
+        border-color: $color-disabled;
+    }
+
+    &:checked:disabled:after {
+        background-color: $color-disabled;
+    }
+}

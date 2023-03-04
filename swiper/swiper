@@ -1,0 +1,42 @@
+Ширина слайдов зависит от размера родительского контейнера.
+Управление элементами и их расположением лучше осуществлять через API
+библиотеки.?
+
+slidesPerView: 3 - количество отображаемых слайдов
+slidesPerGroup: 2 - количество переключаемых слайдов
+spaceBetween: 16 - gap
+swiper-no-swiping класс для родительского контейнера, запрещающий
+свайпать мышкой
+
+Слайдер выезжающий за ширину контента:
+slidesPerView: "auto";
+.swiper-slide {
+	width: auto;
+}
+
+Отключение дефолтных стрелок
+.swiper-button-prev::after,
+.swiper-button-next::after {
+    content: none;
+}
+
+Выделить централь слайд можно стилизовав свойство
+swiper-slide-active
+
+
+const leftArrow = document.querySelector(".swiper-button-next");
+const rightArrow = document.querySelector(".swiper-button-prev");
+leftArrow.addEventListener("click", () => {
+    swiper.slideNext();
+});
+rightArrow.addEventListener("click", () => {
+    swiper.slidePrev();
+});
+
+
+
+
+
+
+
+

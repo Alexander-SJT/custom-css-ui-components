@@ -1,0 +1,34 @@
+.burger {
+    &__btn {
+        cursor: pointer;
+        background-color: transparent;
+        border: 0;
+        display: flex;
+        flex-direction: column;
+        gap: 14px;
+    }
+
+    &__line {
+        display: block;
+        background-color: antiquewhite;
+        width: 53px;
+        height: 4px;
+        transition: all 0.3s ease-in-out;
+    }
+
+    &__close &__line {
+        &:nth-child(1) {
+            transform-origin: top left;
+            transform: rotate(45deg);
+        }
+        &:nth-child(2) {
+            opacity: 0;
+        }
+        &:nth-child(3) {
+            transform-origin: bottom left;
+            transform: rotate(-45deg);
+        }
+    }
+}
+
+//Отступ между линиями и их ширина взаимосвязаны, что бы изменить размер элемента необходимо регулировать оба параметра

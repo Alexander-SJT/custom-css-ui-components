@@ -1,0 +1,163 @@
+%custom-select {
+	$padding: 12px;
+	$color-text: null;
+	$color-border: #cccccc;
+	$color-disabled: #808080;
+
+	$select-width: 250px;
+	$select-color: #7d34fc;
+	$select-color-hover: lighten($select-color, 5%);
+	$select-color-active: darken($select-color, 5%);
+
+	$option-color: #888eff;
+	$option-color-hover: lighten($option-color, 5%);
+	$option-color-active: darken($option-color, 5%);
+
+	width: $select-width;
+	position: relative;
+	text-align-last: left;
+
+	.custom-select__select {
+		display: block;
+		color: $color-text;
+		position: relative;
+		width: 100%;
+		padding: $padding;
+		border: 1px solid $color-border;
+		border-radius: 3px;
+		box-shadow: 0 0 5px 3px rgba($color-border, 0.2);
+		background-color: $select-color;
+		transition: background-color 0.2s ease-in-out;
+		cursor: pointer;
+
+		&:focus {
+			outline: 1px solid rgb(245, 245, 245);
+			outline-offset: 2px;
+		}
+
+		&:hover {
+			background-color: $select-color-hover;
+		}
+
+		&:active {
+			background-color: $select-color-active;
+		}
+
+		&:disabled {
+			background-color: $color-disabled;
+			cursor: not-allowed;
+		}
+
+		&::after {
+			content: "";
+			position: absolute;
+			right: 12px;
+			top: calc(50% - (6px / 2));
+			width: 0;
+			height: 0;
+			border-style: solid;
+			border-width: 6px;
+			border-color: black transparent transparent transparent;
+			transition: transform 0.2s ease-in-out;
+		}
+
+		&--hide {
+			display: none;
+		}
+
+		&--active {
+			&::after {
+				transform-origin: center;
+				transform: rotate(180deg) translateY(6px);
+			}
+		}
+	}
+
+	.custom-select__list {
+		// height: 140px;
+		// overflow-y: scroll;
+		position: absolute;
+		display: block;
+		width: 100%;
+		opacity: 0;
+		visibility: hidden;
+		margin-top: 5px;
+		border: 1px solid $color-border;
+		border-radius: 3px;
+		transition: all 0.2s ease-in-out;
+
+		&--show {
+			visibility: visible;
+			opacity: 1;
+		}
+
+		&::-webkit-scrollbar {
+			appearance: none;
+		}
+
+		&::-webkit-scrollbar-thumb {
+			background-color: $select-color-active;
+			border-radius: 10px;
+		}
+
+		&::-webkit-scrollbar-track {
+			background-color: $option-color;
+		}
+	}
+	.custom-select__option {
+		width: 100%;
+		display: inline-block;
+		border: none;
+		padding: $padding;
+		background-color: $option-color;
+		cursor: pointer;
+		transition: background-color 0.1s ease-in-out;
+		color: ($color-text or rgb(40, 40, 161));
+
+		&--active {
+			background-color: $option-color-active;
+		}
+
+		&:focus {
+			border: 1px solid rgb(245, 245, 245);
+			background-color: $option-color-hover;
+		}
+
+		&:hover {
+			background-color: $option-color-hover;
+		}
+
+		&:active {
+			background-color: $option-color-active;
+		}
+
+		&:disabled {
+			background-color: $color-disabled;
+			cursor: not-allowed;
+		}
+	}
+
+	.custom-select__option.checked {
+		background-color: $option-color-active;
+		&:hover {
+			background-color: none;
+		}
+	}
+
+	.custom-select__select.disabled,
+	.custom-select__option.disabled {
+		background-color: $color-disabled;
+		opacity: 0.5;
+		cursor: not-allowed;
+		&:hover {
+			background-color: none;
+		}
+	}
+
+	.custom-select__option.custom-select__option--active {
+		background-color: $option-color-active;
+		&:hover {
+			background-color: none;
+		}
+	}
+}

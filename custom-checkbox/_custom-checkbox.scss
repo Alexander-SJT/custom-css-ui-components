@@ -1,0 +1,113 @@
+%custom-checkbox {
+  $width: 16px;
+  $height: 16px;
+  $border-radius: 3px;
+
+  $icon-width: 60%;
+  $icon-height: 60%;
+  $icon-path: "../icons/custom-icon.svg";
+
+  $color-bg:  rgb(198, 198, 198);
+  $color-border: rgb(0, 0, 0, 0.6);
+  $color-border-hover: rgb(0, 0, 0);
+  $color-checked: rgb(20, 197, 85);
+  $color-checked-hover: rgb(11, 188, 76);
+  $color-checked-active: rgb(32, 167, 77);
+  $color-disabled: rgba(151, 150, 150, 0.3);
+
+  appearance: none;
+  width: $width;
+  height: $height;
+  border: 1px solid $color-border;
+  border-radius: $border-radius;
+  background-color: $color-bg;
+  cursor: pointer;
+  position: relative;
+
+  &:hover {
+    border-color: $color-border-hover;
+  }
+
+  &:active {
+    border-color: $color-border;
+  }
+
+  &:checked::after {
+    content: "";
+    width: $icon-width;
+    height: $icon-height;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    background-image: url("#{$icon-path}");
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: 100%;
+    z-index: 1;
+  }
+
+  &:checked {
+    background-color: $color-checked;
+    border-color: $color-checked;
+  }
+
+  &:checked:hover {
+    background-color: $color-checked-hover;
+    border-color: $color-checked-hover;
+  }
+
+  &:checked:active {
+    background-color: $color-checked-active;
+    border-color: $color-checked-active;
+  }
+
+  &:disabled {
+    background-color: $color-disabled;
+    border-color: $color-disabled;
+    cursor: not-allowed;
+  }
+
+  &:disabled:checked {
+    background-color: $color-disabled;
+    border-color: $color-disabled;
+    z-index: 10;
+  }
+
+  &:disabled:checked::after {
+    opacity: 0.3;
+  }
+}
+
+%custom-checkbox-2 {
+  @extend %custom-checkbox;
+
+  $color-checked: rgb(255, 71, 39);
+  $color-checked-hover: rgb(255, 99, 71);
+  $color-checked-active: rgb(227, 89, 64);
+  $color-disabled: rgba(151, 150, 150, 0.3);
+
+  &:checked::after {
+    background-image: url("../icons/custom-check-2.svg");
+  }
+
+  &:checked {
+    background-color: $color-checked;
+    border-color: $color-checked;
+  }
+
+  &:checked:hover {
+    background-color: $color-checked-hover;
+    border-color: $color-checked-hover;
+  }
+
+  &:checked:active {
+    background-color: $color-checked-active;
+    border-color: $color-checked-active;
+  }
+
+  &:checked:disabled {
+    background-color: $color-disabled;
+    border-color: $color-disabled;
+  }
+}

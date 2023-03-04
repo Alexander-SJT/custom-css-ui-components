@@ -1,0 +1,30 @@
+html {
+    scroll-snap-type: y mandatory;
+    /* scroll-behavior: smooth; */
+}
+
+body {
+    margin: 0;
+    font-family: system-ui, sans-serif;
+    font-size: 4rem;
+}
+
+section {
+    scroll-snap-align: start;
+    min-block-size: 100vh;
+    scroll-snap-stop: always;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+section:nth-of-type(even) {
+    color: rgb(210, 210, 210);
+    background: rgb(17, 93, 159);
+}
+
+section:nth-of-type(odd) {
+    color: rgb(211, 211, 211);
+    background: rgb(122, 93, 6);
+}
